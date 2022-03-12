@@ -926,6 +926,11 @@ public class LCManager: NSObject, UIGestureRecognizerDelegate {
                                     image: UIImage(systemName: "cpu"), handler: { _ in
             self.systemReport()
         })
+
+        let consoleVisible = UIAction(title: "Console Visible",
+                                    image: UIImage(systemName: "cpu"), handler: { _ in
+            self.isVisible = false
+        })
         
         // Show the right glyph for the current device being used.
         let deviceSymbol: String = {
@@ -979,7 +984,7 @@ public class LCManager: NSObject, UIGestureRecognizerDelegate {
             }
         })
         
-        debugActions.append(contentsOf: [viewFrames, systemReport, displayReport, respring])
+        debugActions.append(contentsOf: [viewFrames, systemReport, displayReport, respring, consoleVisible])
         
         let debugMenu = UIMenu(title: "", options: .displayInline,
                                   children: [UIMenu(title: "Debug", image: UIImage(systemName: "ant"),
